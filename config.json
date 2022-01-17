@@ -1,0 +1,16 @@
+{
+    "source": ["properties/**/*.json"],
+    "platforms": {
+      "css": {
+        "transforms": ["name/cti/kebab", "size/px", "color/css"],
+        "buildPath": "build/css/",
+        "files": [
+          {
+            "destination": "variables.css",
+            "format": "css/variables"
+          }
+        ]
+      }
+      }
+    }
+  
