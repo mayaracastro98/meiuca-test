@@ -1,15 +1,15 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { Meiuca } from '../../build/css/colors'
 
-import Button from './Button.vue'
+import Shape from './Shape.vue'
 
-<Meta title="Components/Button" component={Button} />
+<Meta title="BaseComponents/Shape" component={Shape} />
 
-# Button
-O `Button` trata dos comportamentos básicos de um botão: cores, e estados de *hover*.
+# Shape
+O `Shape` é um componente utilizado como uma casca para componentes de conteúdos, como por exemplo, o shape de um Card Component.
 ## Propriedades
 
-<ArgsTable of={Button} />
+<ArgsTable of={Shape} />
 
 ## Variações
 
@@ -18,19 +18,22 @@ O `Button` trata dos comportamentos básicos de um botão: cores, e estados de *
 export const Template = (args, { argTypes }) => ({
    //👇 Your template goes here
      props: Object.keys(argTypes),
-    components: { Button },
+    components: { Shape },
     template: `
-      <Button v-bind="$props"></Button>
+      <Shape v-bind="$props">
+      <slot>
+          <div></div>
+        </slot>
+      </Shape>
       `
     });
 
 
-Exemplo de uso default do componente de botão, com controles para (`label`).
+Exemplo de uso default do componente de Shape.
 
 <Story 
   name="Default"
   args={{ 
-    label: 'Button Label'
   }}>
   {Template.bind({})}
 </Story>
@@ -40,14 +43,10 @@ Exemplo de uso default do componente de botão, com controles para (`label`).
 Neste stories, a ideia é trazer o exemplo do uso de styles dinâmicos via props, 
 que podem também serem alterados aqui no Storybook via controles.
 Os estilos dinâmicos que podem ser alterados são todos aqueles da folha de tokens de brand.
-<Story 
+<Story
   name="Other"
   args={{ 
-    label: 'Button',
-    backgroundColor: `${Meiuca.brandColorPrimary1}`,
-    hoverColor: `${Meiuca.brandColorPrimary2}`,
-    color: `${Meiuca.neutralColor5}`,
-    fontWeight: `${Meiuca.fontWeightRegular}`
+    backgroundColor: `${Meiuca.neutralColor4}`,
   }}>
   {Template.bind({})}
 </Story>

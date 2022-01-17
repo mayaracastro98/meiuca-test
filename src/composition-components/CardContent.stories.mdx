@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meiuca } from '../../build/css/colors'
+
+import CardContent from './CardContent.vue'
+
+<Meta title="CompositionComponents/CardContent" component={CardContent} />
+
+# CardContent
+O `CardContent` é um componente de composition que é composto por componentes base.
+## Propriedades
+
+<ArgsTable of={CardContent} />
+
+## Variações
+
+### Estado padrão
+
+export const Template = (args, { argTypes }) => ({
+   //👇 Your template goes here
+     props: Object.keys(argTypes),
+    components: { CardContent },
+    template: `
+      <CardContent v-bind="$props"></CardContent>
+      `
+    });
+
+
+Exemplo de uso default do componente de CardContent, com controles para (`text`).
+
+<Story 
+  name="Default"
+  args={{ 
+    heading: 'Heading SM',
+    subtitle: 'Subtitle SM',
+    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
+    label: 'Button Label'
+  }}>
+  {Template.bind({})}
+</Story>

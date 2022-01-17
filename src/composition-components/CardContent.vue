@@ -9,11 +9,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import Shape from '../components/Shape.vue'
-import Heading from './Heading.vue'
-import Subtitle from './Subtitle.vue'
-import Paragraph from './Paragraph.vue'
-import Button from './Button.vue'
+import Shape from '../base-components/Shape.vue'
+import Heading from '../base-components/Heading.vue'
+import Subtitle from '../base-components/Subtitle.vue'
+import Paragraph from '../base-components/Paragraph.vue'
+import Button from '../base-components/Button.vue'
 
 
 @Component({

@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meiuca } from '../../build/css/colors'
+
+import Paragraph from './Paragraph.vue'
+
+<Meta title="BaseComponents/Paragraph" component={Paragraph} />
+
+# Paragraph
+O `Paragraph` é um componente básico para textos longos em conteúdos e páginas.
+## Propriedades
+
+<ArgsTable of={Paragraph} />
+
+## Variações
+
+### Estado padrão
+
+export const Template = (args, { argTypes }) => ({
+   //👇 Your template goes here
+     props: Object.keys(argTypes),
+    components: { Paragraph },
+    template: `
+      <Paragraph v-bind="$props"></Paragraph>
+      `
+    });
+
+
+Exemplo de uso default do componente de Paragraph, com controles para (`text`).
+
+<Story 
+  name="Default"
+  args={{ 
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper, velit sit amet ultrices volutpat, velit sapien aliquam ex, non mollis tortor sapien in erat. Pellentesque venenatis maximus tellus eget consequat. In tempor risus eget nisl tincidunt dictum. Fusce condimentum mattis felis quis gravida. Quisque eu dolor id tellus consequat feugiat. Nullam vel gravida felis, sed consectetur tortor. '
+  }}>
+  {Template.bind({})}
+</Story>
+
+### Estilos de brand dinâmicos
+
+Neste stories, a ideia é trazer o exemplo do uso de styles dinâmicos via props, 
+que podem também serem alterados aqui no Storybook via controles.
+Os estilos dinâmicos que podem ser alterados são todos aqueles da folha de tokens de brand.
+<Story
+  name="Other"
+  args={{ 
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam semper, velit sit amet ultrices volutpat, velit sapien aliquam ex, non mollis tortor sapien in erat. Pellentesque venenatis maximus tellus eget consequat. In tempor risus eget nisl tincidunt dictum. Fusce condimentum mattis felis quis gravida. Quisque eu dolor id tellus consequat feugiat. Nullam vel gravida felis, sed consectetur tortor. ',
+    color: `${Meiuca.neutralColor5}`,
+    fontWeight: `${Meiuca.fontWeightRegular}`
+  }}>
+  {Template.bind({})}
+</Story>

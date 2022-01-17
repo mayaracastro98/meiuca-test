@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meiuca } from '../../build/css/colors'
+
+import Subtitle from './Subtitle.vue'
+
+<Meta title="BaseComponents/Subtitle" component={Subtitle} />
+
+# Subtitle
+O `Subtitle` é um componente básico para subtítulos em conteúdos e páginas.
+## Propriedades
+
+<ArgsTable of={Subtitle} />
+
+## Variações
+
+### Estado padrão
+
+export const Template = (args, { argTypes }) => ({
+   //👇 Your template goes here
+     props: Object.keys(argTypes),
+    components: { Subtitle },
+    template: `
+      <Subtitle v-bind="$props"></Subtitle>
+      `
+    });
+
+
+Exemplo de uso default do componente de subtitle, com controles para (`subtitle`).
+
+<Story 
+  name="Default"
+  args={{ 
+    subtitle: 'Conteúdo do Subtitle'
+  }}>
+  {Template.bind({})}
+</Story>
+
+### Estilos de brand dinâmicos
+
+Neste stories, a ideia é trazer o exemplo do uso de styles dinâmicos via props, 
+que podem também serem alterados aqui no Storybook via controles.
+Os estilos dinâmicos que podem ser alterados são todos aqueles da folha de tokens de brand.
+<Story
+  name="Other"
+  args={{ 
+    subtitle: 'Subtitle com estilo dinâmico',
+    color: `${Meiuca.neutralColor5}`,
+    fontWeight: `${Meiuca.fontWeightMedium}`
+  }}>
+  {Template.bind({})}
+</Story>
